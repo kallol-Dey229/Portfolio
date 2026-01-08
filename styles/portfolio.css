@@ -9,7 +9,7 @@ header{
     padding-top: 50px;
     background: url("../images/developer.png"),url("../images/header_bg.png"),#FFF8F3;
     background-repeat: no-repeat;
-    background-position: top left, bottom right;
+    background-position: 23px 38px, bottom right;
 }
 
 /*shared style*/
