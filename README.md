@@ -14,7 +14,7 @@ A personal portfolio built with Next.js (App Router), TypeScript, and Tailwind C
 
 ## Getting started
 
-```bash
+```bash--
 npm install
 npm run dev
 ```
