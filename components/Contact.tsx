@@ -53,7 +53,7 @@ export default function Contact() {
 
       <div className="border-t border-line">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-6 font-mono text-xs text-muted sm:flex-row">
-          <p>© {new Date().getFullYear()} Kallol Dey. Software Engineer.</p>
+          <p>© {new Date().getFullYear()} Kallol Dey . Software Engineer.</p>
           <p>Bashundhara, Dhaka, Bangladesh</p>
         </div>
       </div>
