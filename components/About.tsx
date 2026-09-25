@@ -4,7 +4,6 @@ const facts = [
   { label: "Focus", value: "Full-stack, role-based web platforms" },
   { label: "Also comfortable in", value: ".NET, Java, C++" },
 ];
-//
 
 export default function About() {
   return (
