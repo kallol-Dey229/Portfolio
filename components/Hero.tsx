@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ArrowRightIcon } from "./Icons";
-
+//
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden border-b border-line">
