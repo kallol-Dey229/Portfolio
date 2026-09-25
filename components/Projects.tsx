@@ -1,6 +1,6 @@
 import { projects } from "@/data/projects";
 import { ExternalLinkIcon, GitHubIcon } from "./Icons";
-
+//
 export default function Projects() {
   const featured = projects.find((p) => p.featured)!;
   const rest = projects.filter((p) => !p.featured);
