@@ -17,7 +17,7 @@ export default function Projects() {
           from schema to UI.
         </p>
 
-        {/* Featured project */}
+        {/* project */}
         <div className="card-hover mt-10 rounded-xl border border-line bg-surface p-8">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
