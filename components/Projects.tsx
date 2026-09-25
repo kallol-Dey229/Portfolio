@@ -1,6 +1,6 @@
 import { projects } from "@/data/projects";
 import { ExternalLinkIcon, GitHubIcon } from "./Icons";
-//
+
 export default function Projects() {
   const featured = projects.find((p) => p.featured)!;
   const rest = projects.filter((p) => !p.featured);
@@ -72,7 +72,7 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Rest of the grid */}
+        
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           {rest.map((p) => (
             <div
