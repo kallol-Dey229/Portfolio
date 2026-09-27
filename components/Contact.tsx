@@ -1,5 +1,5 @@
 import { GitHubIcon, LinkedInIcon, MailIcon, PhoneIcon } from "./Icons";
-//
+
 export default function Contact() {
   return (
     <section id="contact">
