@@ -42,7 +42,7 @@ export default function Hero() {
             open to Software Engineering internships
           </div>
         </div>
-{/* lll */}
+
         <div className="flex flex-col gap-5">
           <div className="relative mx-auto w-56 overflow-hidden rounded-xl border border-line bg-surface sm:w-64">
             <Image
