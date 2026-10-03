@@ -51,15 +51,6 @@ export default function Hobbies() {
           </div>
         </div>
 
-        <div className="mt-6 overflow-hidden rounded-xl border border-line">
-          <Image
-            src="/images/image-3.jpg"
-            alt="Kallol Dey relaxing at the beach"
-            width={1400}
-            height={933}
-            className="h-56 w-full object-cover sm:h-72"
-          />
-        </div>
       </div>
     </section>
   );
