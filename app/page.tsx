@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Stats from "@/components/Stats";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
@@ -11,11 +10,10 @@ import ScrollUI from "@/components/ScrollUI";
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-x-clip">
       <ScrollUI />
       <Header />
       <Hero />
-      <Stats />
       <About />
       <Skills />
       <Projects />

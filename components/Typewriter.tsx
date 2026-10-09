@@ -8,26 +8,21 @@ export default function Typewriter({ words }: { words: string[] }) {
 
   useEffect(() => {
     const word = words[i % words.length];
-    const speed = deleting ? 40 : 80;
     const t = setTimeout(() => {
-      if (!deleting && text === word) {
-        setTimeout(() => setDeleting(true), 1200);
-        return;
-      }
+      if (!deleting && text === word) return setDeleting(true);
       if (deleting && text === "") {
         setDeleting(false);
-        setI((n) => n + 1);
-        return;
+        return setI((n) => n + 1);
       }
       setText(deleting ? word.slice(0, text.length - 1) : word.slice(0, text.length + 1));
-    }, speed);
+    }, !deleting && text === word ? 1400 : deleting ? 35 : 75);
     return () => clearTimeout(t);
   }, [text, deleting, i, words]);
 
   return (
-    <span className="bg-gradient-to-r from-amber to-copper bg-clip-text text-transparent">
+    <span className="grad-text">
       {text}
-      <span className="caret ml-0.5 text-amber">|</span>
+      <span className="caret ml-0.5" style={{ color: "var(--b)", WebkitTextFillColor: "var(--b)" }}>|</span>
     </span>
   );
 }
