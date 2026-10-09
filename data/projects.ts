@@ -12,6 +12,21 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+    {
+    name: "Shopora",
+    role: "Solo Project",
+    category: "Full-stack",
+    tagline: "AI-powered smart shopping experience",
+    description: [
+      "E-commerce storefront with AI-powered product recommendations and a clean, responsive shopping flow.",
+      "Wishlist, cart, categories, deals, and order tracking built into the experience.",
+    ],
+    tech: ["Next.js", "Tailwind CSS", "Express", "MongoDB"],
+    image: "/images/shopora.jpg",
+    live: "https://shopora-ashen.vercel.app",
+    github: "https://github.com/mdmonimul95-crypto/Shopora",
+    featured: true,
+  },
   {
     name: "FitSync",
     role: "Solo Project",
@@ -26,21 +41,6 @@ export const projects: Project[] = [
     image: "/images/fitsync.jpg",
     live: "https://fit-sync-gamma-puce.vercel.app",
     github: "https://github.com/kallol-Dey229/fit-sync",
-    featured: true,
-  },
-  {
-    name: "Shopora",
-    role: "Solo Project",
-    category: "Full-stack",
-    tagline: "AI-powered smart shopping experience",
-    description: [
-      "E-commerce storefront with AI-powered product recommendations and a clean, responsive shopping flow.",
-      "Wishlist, cart, categories, deals, and order tracking built into the experience.",
-    ],
-    tech: ["Next.js", "Tailwind CSS", "Express", "MongoDB"], // <- edit to your real stack
-    image: "/images/shopora.jpg",
-    live: "https://shopora-ashen.vercel.app",
-    github: "https://github.com/mdmonimul95-crypto/Shopora",
   },
   {
     name: "IdeaVault",
