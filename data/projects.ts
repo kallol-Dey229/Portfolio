@@ -21,7 +21,7 @@ export const projects: Project[] = [
       "E-commerce storefront with AI-powered product recommendations and a clean, responsive shopping flow.",
       "Wishlist, cart, categories, deals, and order tracking built into the experience.",
     ],
-    tech: ["Next.js", "Tailwind CSS", "Express", "MongoDB"],
+    tech: ["Next.js", "Tailwind CSS", "Express", "PostgreSQL(Supabase)","Prisma"],
     image: "/images/shopora.jpg",
     live: "https://shopora-ashen.vercel.app",
     github: "https://github.com/mdmonimul95-crypto/Shopora",

@@ -18,9 +18,8 @@ export default function Hero() {
             from schema to UI.
           </h1>
           <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-muted">
-            Full-stack software engineer in Dhaka, Bangladesh. I design and ship production-style
-            platforms (dashboards, marketplaces, payment flows) across the JavaScript/TypeScript
-            ecosystem, .NET, and Java.
+            Final-year CSE student in Dhaka, Bangladesh. I build full-stack web applications with
+  React, Next.js, TypeScript, NestJS, PostgreSQL and MongoDB, from schema design to polished UI.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
