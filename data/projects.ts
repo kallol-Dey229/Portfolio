@@ -39,8 +39,8 @@ export const projects: Project[] = [
     ],
     tech: ["Next.js", "Tailwind CSS", "Express", "MongoDB"], // <- edit to your real stack
     image: "/images/shopora.jpg",
-    // live: "https://your-shopora-link.vercel.app",
-    // github: "https://github.com/kallol-Dey229/your-repo",
+    live: "https://shopora-ashen.vercel.app",
+    github: "https://github.com/mdmonimul95-crypto/Shopora",
   },
   {
     name: "IdeaVault",
