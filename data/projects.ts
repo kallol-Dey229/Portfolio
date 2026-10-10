@@ -106,6 +106,7 @@ export const projects: Project[] = [
       "Focused on a smooth, user-friendly borrowing flow from search to checkout.",
     ],
     tech: ["React", "JavaScript"],
+    image: "/images/Book_vibe.png",
     github: "https://github.com/kallol-Dey229/Book-Vibe-Using-React",
   },
 ];
