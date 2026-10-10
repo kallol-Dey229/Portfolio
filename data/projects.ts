@@ -93,6 +93,7 @@ export const projects: Project[] = [
       "Pulls live word data from a third-party REST API into a fast, DaisyUI-styled interface.",
     ],
     tech: ["JavaScript (ES6)", "Tailwind CSS", "DaisyUI", "REST API"],
+    image: "/images/english_janala.png",
     github: "https://github.com/kallol-Dey229/English-Janala",
   },
   {
