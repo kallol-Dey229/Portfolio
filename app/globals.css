@@ -16,12 +16,16 @@
   --c: #f472b6;
 }
 [data-theme="light"] {
-  --bg: #f6f6fb;
+  color-scheme: light;
+  --bg: #f3f6fb;
   --bg2: #ffffff;
-  --card: rgba(255, 255, 255, 0.75);
-  --border: rgba(20, 20, 43, 0.1);
-  --text: #14142b;
-  --muted: #5a5a76;
+  --card: rgba(255, 255, 255, 0.9);
+  --border: rgba(15, 23, 42, 0.12);
+  --text: #0f172a;
+  --muted: #475569;
+  --a: #4f46e5;   /* deep indigo */
+  --b: #0e7490;   /* deep teal */
+  --c: #be185d;   /* rose */
 }
 
 html { scroll-behavior: smooth; }
@@ -239,3 +243,26 @@ html { scroll-behavior: smooth; }
   .animate-marquee, .animate-float, .caret { animation: none; }
   html { scroll-behavior: auto; }
 }
+
+
+html, body { color: var(--text); }
+
+/* ---- light mode tuning ---- */
+[data-theme="light"] .glass {
+  box-shadow: 0 10px 30px -14px rgba(15, 23, 42, 0.18);
+  backdrop-filter: blur(10px);
+}
+[data-theme="light"] .blob { opacity: 0.18; }
+[data-theme="light"] .cursor-glow { opacity: 0.1; }
+[data-theme="light"] .grid-bg {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+}
+[data-theme="light"] .btn-grad {
+  box-shadow: 0 10px 26px -10px rgba(79, 70, 229, 0.55);
+}
+[data-theme="light"] .spot::before {
+  background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), rgba(79, 70, 229, 0.1), transparent 45%);
+}
+[data-theme="light"] header .glass { background: rgba(255, 255, 255, 0.85); }
