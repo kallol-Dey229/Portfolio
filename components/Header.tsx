@@ -16,13 +16,14 @@ export default function Header() {
   const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem("theme");
-      if (saved) {
-        setTheme(saved);
-        document.documentElement.dataset.theme = saved;
-      }
-    } catch {}
+        try {
+      const saved = localStorage.getItem("theme-v2");
+      const mode = saved === "light" ? "light" : "dark";
+      setTheme(mode);
+      document.documentElement.dataset.theme = mode;
+    } catch {
+      document.documentElement.dataset.theme = "dark";
+    }
     const io = new IntersectionObserver(
       (es) => es.forEach((e) => e.isIntersecting && setActive(e.target.id)),
       { rootMargin: "-40% 0px -55% 0px" }
@@ -38,7 +39,7 @@ export default function Header() {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
     document.documentElement.dataset.theme = next;
-    try { localStorage.setItem("theme", next); } catch {}
+    try { localStorage.setItem("theme-v2", next); } catch {}
   };
 
   return (
