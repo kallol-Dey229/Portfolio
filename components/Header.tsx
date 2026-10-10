@@ -15,8 +15,9 @@ export default function Header() {
   const [active, setActive] = useState("");
   const [theme, setTheme] = useState("dark");
 
+  // Restore saved theme (defaults to dark) and track the active section
   useEffect(() => {
-        try {
+    try {
       const saved = localStorage.getItem("theme-v2");
       const mode = saved === "light" ? "light" : "dark";
       setTheme(mode);
@@ -24,6 +25,7 @@ export default function Header() {
     } catch {
       document.documentElement.dataset.theme = "dark";
     }
+
     const io = new IntersectionObserver(
       (es) => es.forEach((e) => e.isIntersecting && setActive(e.target.id)),
       { rootMargin: "-40% 0px -55% 0px" }
@@ -36,11 +38,21 @@ export default function Header() {
   }, []);
 
   const toggle = () => {
-    const next = theme === "dark" ? "light" : "dark";
+    const current = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+    const next = current === "dark" ? "light" : "dark";
     setTheme(next);
     document.documentElement.dataset.theme = next;
-    try { localStorage.setItem("theme-v2", next); } catch {}
+    try {
+      localStorage.setItem("theme-v2", next);
+    } catch {}
   };
+
+  // Lets the Terminal ("theme" command) and the Ctrl+K menu switch the theme
+  useEffect(() => {
+    const onToggle = () => toggle();
+    window.addEventListener("toggle-theme", onToggle);
+    return () => window.removeEventListener("toggle-theme", onToggle);
+  }, []);
 
   return (
     <header className="fixed left-0 top-4 z-50 w-full px-4">
@@ -57,7 +69,11 @@ export default function Header() {
                 key={l.href}
                 href={l.href}
                 className="rounded-full px-3.5 py-1.5 transition-all"
-                style={on ? { background: "linear-gradient(120deg,var(--a),var(--b))", color: "#fff" } : { color: "var(--muted)" }}
+                style={
+                  on
+                    ? { background: "linear-gradient(120deg,var(--a),var(--b))", color: "#fff" }
+                    : { color: "var(--muted)" }
+                }
               >
                 {l.label}
               </a>
@@ -75,7 +91,11 @@ export default function Header() {
               )}
             </svg>
           </button>
-          <button onClick={() => setOpen(!open)} aria-label="Menu" className="btn-ghost c-text rounded-full p-2 md:hidden">
+          <button
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+            className="btn-ghost c-text rounded-full p-2 md:hidden"
+          >
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={1.8}>
               {open ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
             </svg>
@@ -83,10 +103,19 @@ export default function Header() {
         </div>
       </div>
 
-      <div className={`glass mx-auto mt-2 max-w-4xl overflow-hidden rounded-2xl transition-all duration-300 md:hidden ${open ? "max-h-96 opacity-100" : "max-h-0 border-0 opacity-0"}`}>
+      <div
+        className={`glass mx-auto mt-2 max-w-4xl overflow-hidden rounded-2xl transition-all duration-300 md:hidden ${
+          open ? "max-h-96 opacity-100" : "max-h-0 border-0 opacity-0"
+        }`}
+      >
         <nav className="ff-mono flex flex-col px-5 py-3 text-sm">
           {links.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="c-muted py-2.5 hover:text-[var(--b)]">
+            <a
+              key={l.href}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              className="c-muted py-2.5 hover:text-[var(--b)]"
+            >
               {l.label}
             </a>
           ))}

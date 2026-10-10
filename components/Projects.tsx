@@ -95,7 +95,7 @@ export default function Projects() {
     <section id="projects" className="relative py-24">
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionTitle eyebrow="Projects" title="Things I've shipped" />
+          <SectionTitle eyebrow="Projects" title="Things I've Build" />
           <div className="flex gap-2">
             {filters.map((f) => (
               <button
