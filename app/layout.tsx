@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
-// @ts-expect-error Next.js handles global CSS imports during compilation.
+// @ts-expect-error CSS side-effect imports are handled by Next.js.
 import "./globals.css";
 
 const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-display" });
@@ -14,9 +14,26 @@ export const metadata: Metadata = {
   keywords: ["Kallol Dey", "Software Engineer", "Full-Stack Developer", "Next.js", "NestJS", "Portfolio"],
 };
 
+const themeScript = `
+try {
+  var t = localStorage.getItem("theme-v2");
+  document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+} catch (e) {
+  document.documentElement.setAttribute("data-theme", "dark");
+}
+`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html
+      lang="en"
+      data-theme="dark"
+      suppressHydrationWarning
+      className={`${display.variable} ${body.variable} ${mono.variable}`}
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="antialiased">{children}</body>
     </html>
   );
