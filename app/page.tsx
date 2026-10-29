@@ -10,6 +10,8 @@ import Hobbies from "@/components/Hobbies";
 import Contact from "@/components/Contact";
 import ScrollUI from "@/components/ScrollUI";
 import CommandPalette from "@/components/CommandPalette";
+import Myvideo from "@/components/Myvideo";
+
 
 export default function Home() {
   return (
@@ -26,6 +28,7 @@ export default function Home() {
       <Education />
       <Hobbies />
       <Contact />
+      <Myvideo />
     </main>
   );
 }
