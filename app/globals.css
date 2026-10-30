@@ -98,19 +98,13 @@ body {
 
 @keyframes shine { to { background-position: 250% center; } }
 @keyframes spin { to { transform: rotate(360deg); } }
-@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 @keyframes blink { 50% { opacity: 0; } }
-@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes blob {
   0%,100% { transform: translate(0, 0) scale(1); }
   33% { transform: translate(40px, -30px) scale(1.15); }
   66% { transform: translate(-30px, 30px) scale(0.9); }
-}
-
-@media (pointer: coarse) { .cursor-glow { display: none; } }
-@media (prefers-reduced-motion: reduce) {
-  .grad-text, .ring, .float, .caret, .blob, .marquee-track { animation: none; }
-  html { scroll-behavior: auto; }
 }
 
 ::selection {
@@ -118,26 +112,11 @@ body {
   color: #0a0e14;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* ---- legacy helpers from the old template (colors unchanged) ---- */
+.font-display { font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif; }
+.font-body { font-family: "Inter", ui-sans-serif, system-ui, sans-serif; }
+.font-mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
 
-body {
-  background-color: #0a0e14;
-  color: #e7e9ee;
-}
-
-.font-display {
-  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-}
-.font-body {
-  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
-}
-.font-mono {
-  font-family: "JetBrains Mono", ui-monospace, monospace;
-}
-
-/* Blueprint dot grid, used sparingly behind the hero only */
 .dot-grid {
   background-image: radial-gradient(circle, #232a38 1px, transparent 1px);
   background-size: 28px 28px;
@@ -149,23 +128,8 @@ body {
   letter-spacing: 0.02em;
   color: #e8a33d;
 }
+.eyebrow::before { content: "// "; color: #57d6c6; }
 
-.eyebrow::before {
-  content: "// ";
-  color: #57d6c6;
-}
-
-/* Blinking terminal cursor */
-@keyframes blink {
-  0%,
-  49% {
-    opacity: 1;
-  }
-  50%,
-  100% {
-    opacity: 0;
-  }
-}
 .cursor {
   display: inline-block;
   width: 8px;
@@ -185,42 +149,10 @@ body {
   box-shadow: 0 12px 30px -12px rgba(232, 163, 61, 0.25);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  .card-hover:hover {
-    transform: none;
-  }
-  .cursor {
-    animation: none;
-    opacity: 1;
-  }
-}
-
-
-
-
-html { scroll-behavior: smooth; }
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-10px); }
-}
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
 .animate-marquee { animation: marquee 30s linear infinite; }
 .marquee:hover .animate-marquee { animation-play-state: paused; }
-.animate-float   { animation: float 5s ease-in-out infinite; }
-.caret { animation: blink 1s step-end infinite; }
+.animate-float { animation: float 5s ease-in-out infinite; }
 
-/* mouse-follow spotlight for cards */
 .spotlight { position: relative; }
 .spotlight::before {
   content: "";
@@ -231,21 +163,9 @@ html { scroll-behavior: smooth; }
   transition: opacity 0.3s;
   pointer-events: none;
   z-index: 2;
-  background: radial-gradient(
-    420px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(255, 255, 255, 0.07),
-    transparent 40%
-  );
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.07), transparent 40%);
 }
 .spotlight:hover::before { opacity: 1; }
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-marquee, .animate-float, .caret { animation: none; }
-  html { scroll-behavior: auto; }
-}
-
-
-html, body { color: var(--text); }
 
 /* ---- light mode tuning ---- */
 [data-theme="light"] .glass {
@@ -266,3 +186,13 @@ html, body { color: var(--text); }
   background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), rgba(79, 70, 229, 0.1), transparent 45%);
 }
 [data-theme="light"] header .glass { background: rgba(255, 255, 255, 0.85); }
+
+/* ---- accessibility ---- */
+@media (pointer: coarse) { .cursor-glow { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .grad-text, .ring, .float, .caret, .blob, .marquee-track,
+  .animate-marquee, .animate-float { animation: none; }
+  .cursor { animation: none; opacity: 1; }
+  .card-hover:hover { transform: none; }
+  html { scroll-behavior: auto; }
+}
